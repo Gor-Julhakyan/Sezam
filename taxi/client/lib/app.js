@@ -1,0 +1,1 @@
+angular.module('myPersonal', ['angular-meteor', 'ui.router']);
