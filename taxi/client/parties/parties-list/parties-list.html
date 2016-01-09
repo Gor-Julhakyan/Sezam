@@ -1,14 +1,32 @@
+<form action="">
+	<span ng-repeat="car in partiesList.carsErevan" style="display: block">
+		<input type="text" ng-model="partiesList.newParty[car.mmm].carNumber" ng-value="{{car.number}}" >
+		<input type="number" ng-model="partiesList.newParty[car.mmm].sumFirst">
+		<input type="number" ng-model="partiesList.newParty[car.mmm].sumSecond">
+		<input type="number" ng-model="partiesList.newParty[car.mmm].sumThred">
+	</span>
+	<button ng-click="partiesList.addParty()">Add Party!</button>
+</form>
+
+<ul>
+	<li ng-repeat="party in partiesList.parties">
+		{{party[1].sumFirst}}
+		<button ng-click="partiesList.removeParty(party)">DELETE</button>
+	</li>
+</ul>
+
+<!--
 <form>
 	<label>Party Name: </label>
-	<input type="text" ng-model="partiesList.newParty.name" />
+	<input ng-model="partiesList.newParty.name" />
 	<label>Description: </label>
-	<input type="text" ng-model="partiesList.newParty.description" />
+	<input ng-model="partiesList.newParty.description" />
 	<button ng-click="partiesList.addParty()">Add Party!</button>
 </form>
 <ul>
 	<li ng-repeat="party in partiesList.parties">
-		{{party.name}}
+		{{party.name+party.description | number}}
 		<p>{{party.description}}</p>
 		<button ng-click="partiesList.removeParty(party)">X</button>
 	</li>
-</ul>
+</ul>-->

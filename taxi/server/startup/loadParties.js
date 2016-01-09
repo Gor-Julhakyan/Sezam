@@ -2,20 +2,27 @@ Meteor.startup(function () {
   if (Parties.find().count() === 0) {
     var parties = [
       {
-        'name': 'Dubstep-Free Zone',
-        'description': 'Fast just got faster with Nexus S.'
+        'carNumber': '0306',
+        'sumFirst': 0,
+        'sumSecond': 0,
+        'sumThred': 0
       },
       {
-        'name': 'All dubstep all the time',
-        'description': 'Get it on!'
+        'carNumber': '0307',
+        'sumFirst': 0,
+        'sumSecond': 0,
+        'sumThred': 0
       },
       {
-        'name': 'Savage lounging',
-        'description': 'Leisure suit required. And only fiercest manners.'
+        'carNumber': '0308',
+        'sumFirst': 0,
+        'sumSecond': 0,
+        'sumThred': 0
       }
     ];
  
     for (var i = 0; i < parties.length; i++) {
+      parseInt(parties[i], 10);
       Parties.insert(parties[i]);
     }
   }
