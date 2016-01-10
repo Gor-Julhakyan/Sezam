@@ -1,16 +1,18 @@
 <form action="">
+	<input type="date" value="2016-01-01" ng-model="partiesList.newParty.date">
+	<div></div>
 	<span ng-repeat="car in partiesList.carsErevan" style="display: block">
-		<input type="text" ng-model="partiesList.newParty[car.mmm].carNumber" ng-value="{{car.number}}" >
-		<input type="number" ng-model="partiesList.newParty[car.mmm].sumFirst">
-		<input type="number" ng-model="partiesList.newParty[car.mmm].sumSecond">
-		<input type="number" ng-model="partiesList.newParty[car.mmm].sumThred">
+		<input type="text" ng-model="partiesList.newParty.carNumber" ng-value="{{car.number}}" >
+		<input type="number" ng-model="partiesList.newParty[car.number].sum1">
+		<input type="number" ng-model="partiesList.newParty[car.number].sum2">
+		<input type="number" ng-model="partiesList.newParty[car.number].sum3">
 	</span>
 	<button ng-click="partiesList.addParty()">Add Party!</button>
 </form>
 
 <ul>
-	<li ng-repeat="party in partiesList.parties">
-		{{party[1].sumFirst}}
+	<li ng-show="partiesList.parties.date == '2015' " ng-repeat="party in partiesList.parties">
+		{{party[306].sum1 + party[306].sum2 + party[306].sum3}}
 		<button ng-click="partiesList.removeParty(party)">DELETE</button>
 	</li>
 </ul>

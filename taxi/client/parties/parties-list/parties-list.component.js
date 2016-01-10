@@ -23,43 +23,19 @@ angular.module('myPersonal').directive('partiesList', function () {
         Parties.remove({_id: party._id});
       }
 
+      this.date = 01;  
+
+
       this.carsErevan = [
-        {
-          number: "00306",
-          mmm: 1
-        },
-        {
-          number: "0307",
-          mmm: 2
-        },
-        {
-          number: "0308",
-          mmm: 3
-        },
-        {
-          number: "0305",
-          mmm: 4
-        },
-        {
-          number: "0307",
-          mmm: 5
-        },
-        {
-          number: "0309",
-          mmm: 6
-        },
-        {
-          number: "0306",
-          mmm: 7
-        },
-        {
-          number: "0306",
-          mmm: 8
-        },
-        {
-          number: "0306",
-          mmm: 9
-        },
+        { number: "306" },
+        { number: "307" },
+        { number: "308" },
+        { number: "309" },
+        { number: "310" },
+        { number: "311" },
+        { number: "314" },
+        { number: "315" },
+        { number: "316" },
       ];
     }
   }
