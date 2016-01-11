@@ -1,18 +1,34 @@
 <form action="">
-	<input type="date" value="2016-01-01" ng-model="partiesList.newParty.date">
-	<div></div>
+	<input type="date" name="day" ng-model="partiesList.newParty.date" format="medium">
+	<br>
+	
+	<br>
+	<div id="day">{{ partiesList.date}}</div>
+
+	<br>
+<!-- 
+	<input type="text" ng-value="partiesList.date | date: 'dd' " ng-model="partiesList.newParty.date[day]">
+	<input type="text" ng-value="partiesList.date | date: 'MMM' " ng-model="partiesList.newParty.date[month]">
+	<input type="text" ng-value="partiesList.date | date: 'yyyy' " ng-model="partiesList.newParty.date[year]">
+
+	<br>
+	-->
+
 	<span ng-repeat="car in partiesList.carsErevan" style="display: block">
-		<input type="text" ng-model="partiesList.newParty.carNumber" ng-value="{{car.number}}" >
+		<input type="text" ng-value="car.number" >
 		<input type="number" ng-model="partiesList.newParty[car.number].sum1">
 		<input type="number" ng-model="partiesList.newParty[car.number].sum2">
 		<input type="number" ng-model="partiesList.newParty[car.number].sum3">
 	</span>
 	<button ng-click="partiesList.addParty()">Add Party!</button>
 </form>
-
+<input type="text" ng-model="s">
 <ul>
-	<li ng-show="partiesList.parties.date == '2015' " ng-repeat="party in partiesList.parties">
-		{{party[306].sum1 + party[306].sum2 + party[306].sum3}}
+	<li  ng-repeat="party in partiesList.parties | filter:s">
+		<div>
+			<div>{{party[306].sum1 + party[306].sum2 + party[306].sum3}}</div>
+			<div>{{ party.date | date: 'dd.MMM.yyyy' }}</div>
+		</div>
 		<button ng-click="partiesList.removeParty(party)">DELETE</button>
 	</li>
 </ul>

@@ -3,11 +3,18 @@ angular.module('myPersonal').directive('partiesList', function () {
     restrict: 'E',
     templateUrl: 'client/parties/parties-list/parties-list.html',
     controllerAs: 'partiesList',
-    controller: function ($scope, $reactive) {
+    controller: function ($scope, $reactive, $mdDialog, $filter) {
       $reactive(this).attach($scope);
+ 
+      this.date = "";
+      this.day = $filter('date')(new Date(), 'dd');
+      this.month = $filter('date')(this.date, 'MMM');
+      this.year = $filter('date')(this.date, 'yyyy')  
+
  
       this.newParty = {};
  
+
       this.helpers({
         parties: () => {
           return Parties.find({});
@@ -23,7 +30,7 @@ angular.module('myPersonal').directive('partiesList', function () {
         Parties.remove({_id: party._id});
       }
 
-      this.date = 01;  
+      this.a = 11;
 
 
       this.carsErevan = [
@@ -37,6 +44,8 @@ angular.module('myPersonal').directive('partiesList', function () {
         { number: "315" },
         { number: "316" },
       ];
-    }
+
+
+    } 
   }
 });
