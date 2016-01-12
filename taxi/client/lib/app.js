@@ -5,4 +5,9 @@ angular.module('myPersonal', [
 //	'angularUtils.directives.dirPagination',
 //	'uiGmapgoogle-maps', 
 	'ngMaterial'
-]);
+])
+.config(function($mdThemingProvider) {
+  $mdThemingProvider.theme('default')
+    .primaryPalette('green')
+    .accentPalette('orange');
+});

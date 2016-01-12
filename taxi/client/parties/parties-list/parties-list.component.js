@@ -24,18 +24,37 @@ angular.module('myPersonal').directive('partiesList', function () {
       }
 
       this.carsErevan = [
-        { number: "306" },
-        { number: "307" },
-        { number: "308" },
-        { number: "309" },
-        { number: "310" },
-        { number: "311" },
-        { number: "314" },
-        { number: "315" },
-        { number: "316" },
+        { 
+          number: "0306" ,
+          dbKey: "306"
+        },
+        { number: "0307",
+          dbKey: "307"
+        },
+        { number: "0308",
+          dbKey: "308"
+        },
+        { number: "0309",
+          dbKey: "309"
+        },
+        { number: "0310",
+          dbKey: "310"
+        },
+        { number: "0311",
+          dbKey: "311"
+        },
+        { number: "0314",
+          dbKey: "314"
+        },
+        { number: "0315",
+          dbKey: "315"
+        },
+        { number: "0316",
+          dbKey: "316"
+        },
       ];
 
-
+      
     } 
   }
 });
