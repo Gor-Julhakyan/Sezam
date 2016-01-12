@@ -4,7 +4,11 @@ angular.module('myPersonal').config(function ($urlRouterProvider, $stateProvider
   $stateProvider
     .state('parties', {
       url: '/parties',
-      template: '<parties-list></parties-list>'
+      views: {
+        "viewA": { template: "<parties-list></parties-list>" },
+        "viewB": { template: "" }
+      }
+//      template: '<parties-list></parties-list>'
     })
     .state('partyDetails', {
       url: '/parties/:partyId',

@@ -5,15 +5,8 @@ angular.module('myPersonal').directive('partiesList', function () {
     controllerAs: 'partiesList',
     controller: function ($scope, $reactive, $mdDialog, $filter) {
       $reactive(this).attach($scope);
- 
-      this.date = "";
-      this.day = $filter('date')(new Date(), 'dd');
-      this.month = $filter('date')(this.date, 'MMM');
-      this.year = $filter('date')(this.date, 'yyyy')  
 
- 
       this.newParty = {};
- 
 
       this.helpers({
         parties: () => {
@@ -29,9 +22,6 @@ angular.module('myPersonal').directive('partiesList', function () {
       this.removeParty = (party) => {
         Parties.remove({_id: party._id});
       }
-
-      this.a = 11;
-
 
       this.carsErevan = [
         { number: "306" },
