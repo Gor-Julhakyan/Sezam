@@ -52,6 +52,31 @@ angular.module('myPersonal').directive('partiesList', function () {
         { number: "0316",
           dbKey: "316"
         },
+        { number: "0430",
+          dbKey: "430"
+        },
+        { number: "0440",
+          dbKey: "440"
+        },
+        { number: "0444",
+          dbKey: "444"
+        },
+        { number: "0499",
+          dbKey: "499"
+        },
+        { number: "0555",
+          dbKey: "555"
+        },
+        { number: "1313",
+          dbKey: "313"
+        },
+        { number: "2375",
+          dbKey: "375"
+        },
+        { number: "34 CM 051",
+          dbKey: "51"
+        },
+
       ];
 
       
