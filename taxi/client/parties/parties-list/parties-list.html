@@ -5,7 +5,7 @@
 		<md-card layout="row" flex layout-align="center center" class="date">
     		<h2>{{ partiesList.newParty.date | date: 'dd.MM.yyyy' }}</h2>
  	 	</md-card>
-		<span ng-repeat="car in partiesList.carsErevan" layout="row" flex layout-margin layout-align="center center">
+		<span ng-repeat="car in partiesList.globals | filter:partiesList.cmpny " layout="row" flex layout-margin layout-align="center center" class="car-input">
 			<div class="input-label">{{ car.number }}</div>
 			<md-input-container md-no-float class="md-block" layout-fill flex="20" flex-offset="15">
 				<input type="number" aria-label="input" step="50" ng-model="partiesList.newParty[car.dbKey].sum1">
@@ -36,19 +36,3 @@
 		<button ng-click="partiesList.removeParty(party)">DELETE</button>
 	</li>
 </ul>
-
-<!--
-<form>
-	<label>Party Name: </label>
-	<input ng-model="partiesList.newParty.name" />
-	<label>Description: </label>
-	<input ng-model="partiesList.newParty.description" />
-	<button ng-click="partiesList.addParty()">Add Party!</button>
-</form>
-<ul>
-	<li ng-repeat="party in partiesList.parties">
-		{{party.name+party.description | number}}
-		<p>{{party.description}}</p>
-		<button ng-click="partiesList.removeParty(party)">X</button>
-	</li>
-</ul>-->

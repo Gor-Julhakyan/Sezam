@@ -6,7 +6,7 @@ angular.module('myPersonal').config(function ($urlRouterProvider, $stateProvider
       url: '/parties',
       views: {
         "viewA": { template: "<parties-list></parties-list>" },
-        "viewB": { template: "" }
+        "viewB": { template: "<monthly></monthly>" }
       }
 //      template: '<parties-list></parties-list>'
     })
