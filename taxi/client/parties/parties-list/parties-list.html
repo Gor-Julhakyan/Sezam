@@ -30,7 +30,7 @@
 <ul>
 	<li  ng-repeat="party in partiesList.parties | filter:s">
 		<div>
-			<div>{{party[306].sum1 + party[306].sum2 + party[306].sum3}}</div>
+			<div>{{party.sum1 + party.sum2 + party.sum3}}</div>
 			<div>{{ party.date | date: 'dd.MMM.yyyy' }}</div>
 		</div>
 		<button ng-click="partiesList.removeParty(party)">DELETE</button>

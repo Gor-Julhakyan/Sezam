@@ -1,9 +1,25 @@
-<md-card class="md-whiteframe-2dp" layout layout-align="center center">
-    <span ng-repeat="car in monthly.globals" layout="row" class="mnt-carnum">
-        {{car.number}}
-    </span>
-    <md-card-content layout="column">
-        <h2>Card headline</h2>
-        <p>Card content</p>
-    </md-card-content>
+<md-card class="md-whiteframe-2dp" layout="column" layout-align="center center">
+<md-card layout="row" layout-align="center center">
+<div ng-repeat="car in monthly.globals" layout="row" class="mnt-carnum" style="width:{{monthly.len}}%;">
+	{{car.number}}
+</div>
 </md-card>
+
+<div layout="column" ng-repeat="party in monthly.parties">
+	<md-card layout="row" flex="100">
+		<span layout="column" ng-repeat="car in monthly.globals | filter:monthly.cmpny" class="mnt-carnum">
+			{{party[car.dbKey].sum1 + party[car.dbKey].sum2 + party[car.dbKey].sum3}}
+		</span>
+	</md-card>
+</div>
+
+
+</md-card>
+
+
+
+
+<md-card>
+	<td>sxd</td>
+</md-card>	
+

@@ -15,6 +15,13 @@ angular.module('myPersonal').directive('monthly', function () {
         }
       });
 
+      this.cmpny = "erevan";
+
+      this.sstyle = 150;
+
+      this.len = 100 / this.globals.length;
+
+      console.log(this.len);
 
 
     }
