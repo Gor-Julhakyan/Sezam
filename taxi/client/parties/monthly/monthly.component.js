@@ -23,6 +23,32 @@ angular.module('myPersonal').directive('monthly', function () {
 
       console.log(this.len);
 
+      this.save = () => {
+        Parties.update({_id: $stateParams.partyId}, {
+          $set: {
+            name: this.party.name,
+            description: this.party.description
+          }
+        }, (error) => {
+          if (error) {
+            console.log('Oops, unable to update the party...');
+          }
+          else {
+            console.log('Done!');
+          }
+        });
+      };
+
+      // Toolbar
+
+      this.topDirections = ['left', 'up'];
+      this.bottomDirections = ['down', 'right'];
+      this.isOpen = false;
+      this.availableModes = ['md-fling', 'md-scale'];
+      this.selectedMode = 'md-scale';
+      this.availableDirections = ['up', 'down', 'left', 'right'];
+      this.selectedDirection = 'left';
+
 
     }
   }

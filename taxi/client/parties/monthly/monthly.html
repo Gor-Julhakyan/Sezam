@@ -1,3 +1,28 @@
+<md-toolbar>
+  <div class="md-toolbar-tools">
+	<div class="lock-size" layout="row" layout-align="center center">
+      
+      <md-fab-speed-dial md-open="monthly.isOpen" md-direction="{{monthly.selectedDirection}}" ng-class="monthly.selectedMode">
+        <md-fab-trigger>
+          <md-button aria-label="menu" class="md-fab md-warn">
+            <md-icon md-svg-src="action:ic_settings_24px"></md-icon>
+          </md-button>
+        </md-fab-trigger>
+        <md-fab-actions>
+          <md-button aria-label="Delete" class="md-fab md-raised md-mini">
+            <md-icon md-svg-src="action:ic_delete_24px" aria-label="Delete"></md-icon>
+          </md-button>
+
+        </md-fab-actions>
+      </md-fab-speed-dial>
+
+      <md-checkbox ng-model="monthly.isOpen"></md-checkbox>
+    </div>
+  </div>
+</md-toolbar>
+
+
+
 <md-checkbox ng-model="deleted">1 </md-checkbox>
               <input type="checkbox" ng-model="deleted">
 <md-whiteframe class="mnt-cont md-whiteframe-2dp">
