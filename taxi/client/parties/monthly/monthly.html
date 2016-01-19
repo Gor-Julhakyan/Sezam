@@ -1,25 +1,30 @@
-<md-card class="md-whiteframe-2dp" layout="column" layout-align="center center">
-<md-card layout="row" layout-align="center center">
-<div ng-repeat="car in monthly.globals" layout="row" class="mnt-carnum" style="width:{{monthly.len}}%;">
-	{{car.number}}
-</div>
-</md-card>
-
-<div layout="column" ng-repeat="party in monthly.parties">
-	<md-card layout="row" flex="100">
-		<span layout="column" ng-repeat="car in monthly.globals | filter:monthly.cmpny" class="mnt-carnum">
-			{{party[car.dbKey].sum1 + party[car.dbKey].sum2 + party[car.dbKey].sum3}}
-		</span>
-	</md-card>
-</div>
-
-
-</md-card>
-
-
-
-
-<md-card>
-	<td>sxd</td>
-</md-card>	
-
+<md-checkbox ng-model="deleted">1 </md-checkbox>
+              <input type="checkbox" ng-model="deleted">
+<md-whiteframe class="mnt-cont md-whiteframe-2dp">
+    <md-card class="md-whiteframe-2dp" layout="column">
+        <md-whiteframe class="md-whiteframe-2dp mnt-car-hed" layout-align="center center" flex="100">
+            <span layout="row">
+            <div ng-repeat="car in monthly.globals" layout="row" class="mnt-container">
+                <div layout-align="center center">
+                	{{ car.number }}
+                </div>
+            </div>
+        </span>
+        </md-whiteframe>
+        <div layout="column" layout-align="start start" ng-repeat="party in monthly.parties">
+            <md-card layout="row" flex="100">
+                <span layout="column" ng-repeat="car in monthly.globals | filter:monthly.cmpny" class="mnt-container" ng-model="total">
+                	{{ party[car.dbKey].sum1 + party[car.dbKey].sum2 + party[car.dbKey].sum3 }}
+					<span layout="row" ng-show="deleted" class="val-edit">
+						<md-button class="md-icon-button" aria-label="More">
+					        <md-icon md-svg-icon="content:ic_create_24px"></md-icon>
+						</md-button>
+						<md-button class="md-icon-button" aria-label="More">
+					        <md-icon md-svg-icon="action:ic_delete_24px"></md-icon>
+						</md-button>
+					</span>
+                </span>
+            </md-card>
+        </div>
+    </md-card>
+</md-whiteframe>

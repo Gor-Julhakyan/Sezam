@@ -19,7 +19,7 @@ angular.module('myPersonal').directive('monthly', function () {
 
       this.sstyle = 150;
 
-      this.len = 100 / this.globals.length;
+      this.len = 95 * this.globals.length;
 
       console.log(this.len);
 
