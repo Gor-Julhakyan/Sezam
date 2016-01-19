@@ -1,30 +1,21 @@
-<md-toolbar>
-  <div class="md-toolbar-tools">
-	<div class="lock-size" layout="row" layout-align="center center">
-      
-      <md-fab-speed-dial md-open="monthly.isOpen" md-direction="{{monthly.selectedDirection}}" ng-class="monthly.selectedMode">
-        <md-fab-trigger>
-          <md-button aria-label="menu" class="md-fab md-warn">
-            <md-icon md-svg-src="action:ic_settings_24px"></md-icon>
-          </md-button>
-        </md-fab-trigger>
-        <md-fab-actions>
-          <md-button aria-label="Delete" class="md-fab md-raised md-mini">
-            <md-icon md-svg-src="action:ic_delete_24px" aria-label="Delete"></md-icon>
-          </md-button>
-
-        </md-fab-actions>
-      </md-fab-speed-dial>
-
-      <md-checkbox ng-model="monthly.isOpen"></md-checkbox>
-    </div>
-  </div>
+<md-toolbar layout="row" layout-align="end center" flex>
+  <md-fab-actions class="md-toolbar-tools" layout-align="end center" flex>
+    <md-switch ng-model="edit">Edit</md-switch>
+	<md-input-container>
+    	<label>Months</label>
+        <md-select ng-model="mntFilter">
+        	<span ng-repeat="sezon in monthly.months">
+          <md-optgroup label="{{sezon.sezons}}">
+            <md-option ng-value="month" ng-repeat="month in sezon.months">{{month}}</md-option>
+          </md-optgroup>
+          </span>
+        </md-select>
+      </md-input-container>
+  </md-fab-actions>
 </md-toolbar>
 
 
 
-<md-checkbox ng-model="deleted">1 </md-checkbox>
-              <input type="checkbox" ng-model="deleted">
 <md-whiteframe class="mnt-cont md-whiteframe-2dp">
     <md-card class="md-whiteframe-2dp" layout="column">
         <md-whiteframe class="md-whiteframe-2dp mnt-car-hed" layout-align="center center" flex="100">
@@ -36,11 +27,11 @@
             </div>
         </span>
         </md-whiteframe>
-        <div layout="column" layout-align="start start" ng-repeat="party in monthly.parties">
+        <div layout="column" layout-align="start start" ng-repeat="party in monthly.parties | filter:mntFilter">
             <md-card layout="row" flex="100">
                 <span layout="column" ng-repeat="car in monthly.globals | filter:monthly.cmpny" class="mnt-container" ng-model="total">
                 	{{ party[car.dbKey].sum1 + party[car.dbKey].sum2 + party[car.dbKey].sum3 }}
-					<span layout="row" ng-show="deleted" class="val-edit">
+					<span layout="row" ng-show="edit" class="val-edit">
 						<md-button class="md-icon-button" aria-label="More">
 					        <md-icon md-svg-icon="content:ic_create_24px"></md-icon>
 						</md-button>

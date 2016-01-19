@@ -21,6 +21,25 @@ angular.module('myPersonal').directive('monthly', function () {
 
       this.len = 95 * this.globals.length;
 
+      this.months = [
+        {
+          sezons: "winter", 
+          months: ['December', 'Jenuary', 'February']
+        },
+        {
+          sezons: "spring", 
+          months: ['March','April', 'May']
+        },
+        {
+          sezons: "summer", 
+          months: ['June', 'July', 'August']
+        },       
+        {
+          sezons: "autumn", 
+          months: ['September', 'October', 'November']
+        }
+      ];
+
       console.log(this.len);
 
       this.save = () => {
@@ -39,15 +58,8 @@ angular.module('myPersonal').directive('monthly', function () {
         });
       };
 
-      // Toolbar
 
-      this.topDirections = ['left', 'up'];
-      this.bottomDirections = ['down', 'right'];
-      this.isOpen = false;
-      this.availableModes = ['md-fling', 'md-scale'];
-      this.selectedMode = 'md-scale';
-      this.availableDirections = ['up', 'down', 'left', 'right'];
-      this.selectedDirection = 'left';
+
 
 
     }
