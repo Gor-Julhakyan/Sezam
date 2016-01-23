@@ -10,13 +10,13 @@
 		<span ng-repeat="car in partiesList.globals | filter:partiesList.cmpny " layout="row" flex layout-margin layout-align="center center" class="car-input">
 			<div class="input-label">{{ car.number }}</div>
 			<md-input-container md-no-float class="md-block" layout-fill flex="20" flex-offset="15">
-				<input type="number" min="0" id="sum1" ng-change="partiesList.db()" aria-label="input" step="50" ng-model="partiesList.newParty[$index].sum1">
+				<input type="number" min="0" id="sum1" ng-change="partiesList.db()" aria-label="input1" step="50" ng-model="partiesList.newParty[$index].sum1">
 			</md-input-container>
 			<md-input-container layout-fill flex="20" flex-offset="5" class="val-input">		
-				<input type="number" min="0" id="sum2" ng-change="partiesList.db()" aria-label="input" step="50" ng-model="partiesList.newParty[$index].sum2">
+				<input type="number" min="0" id="sum2" ng-change="partiesList.db()" aria-label="input2" step="50" ng-model="partiesList.newParty[$index].sum2">
 			</md-input-container>
 			<md-input-container layout-fill flex="20" flex-offset="5" class="val-input">				
-				<input type="number" min="0" id="sum3" ng-change="partiesList.db()" aria-label="input" step="50" ng-model="partiesList.newParty[$index].sum3">
+				<input type="number" min="0" id="sum3" ng-change="partiesList.db()" aria-label="input3" step="50" ng-model="partiesList.newParty[$index].sum3">
 			</md-input-container>
 			<!--
 			<input type="checkbox" ng-model="partiesList.newParty[car.dbKey].total" 
