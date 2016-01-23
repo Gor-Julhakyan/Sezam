@@ -7,6 +7,9 @@
 //////										  ///////
 /////////////////////////////////////////////////////
 
+body
+	font-family: 'Roboto Condensed'
+
 .workspace
 	background-color: #CFD8DC
 
@@ -35,14 +38,34 @@
 
 .monthly
 	width: 66%
+	padding: 0
 	md-toolbar
-		background: #263238
-		
+		background: #4FC3F7 //#263238
+		padding-right: 5%
+		.mnt-tbl-title
+
+		.md-display-2
+			margin-left: 3%
+			font-size: 36px 
+			//font-variant: small-caps
+		.toolbar-item-desc
+			padding-right: 20%
+			font-size: 0.7em
+			text-align: center !important
+			margin: 0 auto
+			display: block	
+		md-select
+			width: 100px
+			
+
 
 .mnt-cont
 	overflow: auto
 	display: flex
-	 
+	margin: 0 10px
+	.mnt-total-day
+		background: #8BC34A
+		
 .mnt-car-hed
 	padding: 0 8px
 	background: #00897B
@@ -61,7 +84,7 @@
 	min-width: 95px
 	max-width: 95px 
 	font-family: 'Roboto Condensed'
-	font-size: 1.2vw
+	font-size: 1.2em
 	padding: 5px
 	box-sizing: border-box
 	display: flex
@@ -80,6 +103,21 @@
 			height: 24px
 			padding: 0
 			margin: 4px 2px 0 2px  
+.mnt-day-value
+	margin: 4px 8px
+	
+.mnt-day
+	display: flex
+	border-radius: 20px
+	background: #263238
+	font-size: 1.3em
+	color: #F5F5F5
+	width: 35px
+	height: 35px
+	justify-content: center
+	align-items: center
+	padding: 0
+	margin: 8px 8px
 
 
 

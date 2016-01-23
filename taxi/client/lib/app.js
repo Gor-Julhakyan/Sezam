@@ -7,6 +7,7 @@ angular.module('myPersonal', [
 	'ngMaterial'
 ])
 
+// Angular Material Design Icons 'Meteor JS'
 .config(($mdIconProvider) => {
   $mdIconProvider
     .iconSet("social", "/packages/planettraining_material-design-icons/bower_components/material-design-icons/sprites/svg-sprite/svg-sprite-social.svg")

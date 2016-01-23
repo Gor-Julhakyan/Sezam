@@ -1,46 +1,72 @@
-<md-toolbar layout="row" layout-align="end center" flex>
-  <md-fab-actions class="md-toolbar-tools" layout-align="end center" flex>
-    <md-switch ng-model="edit">Edit</md-switch>
-	<md-input-container>
-    	<label>Months</label>
-        <md-select ng-model="mntFilter">
-        	<span ng-repeat="sezon in monthly.months">
-          <md-optgroup label="{{sezon.sezons}}">
-            <md-option ng-value="month" ng-repeat="month in sezon.months">{{month}}</md-option>
+<md-toolbar layout="row" layout-align="start center">
+    <div class="md-display-2 mnt-tbl-title" layout="row" layout-align="center center">
+        {{ mntFilter | uppercase }}
+    </div>
+    <md-fab-actions class="md-toolbar-tools" layout-align="end center">
+        <div layout="column" layout-align="center center">
+            <md-switch aria-label="edit" ng-model="edit" flex="33" layout-margin></md-switch>
+            <div class="toolbar-item-desc">Edit</div>
+        </div>
+        <div layout="column" layout-align="center center">
+            <md-input-container flex="33" layout-margin>
+                <md-select aria-label="select" ng-model="mntFilter" class=".md-select-menu-container">
+                    <span ng-repeat="sezon in monthly.months">
+          <md-optgroup label="{{ sezon.sezons }}">
+            <md-option ng-value="month.abbrev" ng-repeat="month in sezon.months">{{ month.name }}</md-option>
           </md-optgroup>
           </span>
-        </md-select>
-      </md-input-container>
-  </md-fab-actions>
+                </md-select>
+                <div class="toolbar-item-desc" layout-align="center center">Month</div>
+            </md-input-container>
+        </div>
+    </md-fab-actions>
 </md-toolbar>
-
-
-
 <md-whiteframe class="mnt-cont md-whiteframe-2dp">
     <md-card class="md-whiteframe-2dp" layout="column">
-        <md-whiteframe class="md-whiteframe-2dp mnt-car-hed" layout-align="center center" flex="100">
-            <span layout="row">
-            <div ng-repeat="car in monthly.globals" layout="row" class="mnt-container">
+        <span layout="row">
+        <md-whiteframe class="md-whiteframe-2dp" layout="row" layout-align="center center" flex="100">
+            <div layout-align="center center" class="mnt-container mnt-date">
+            Date
+        </div>
+              <div layout-align="center center" class="mnt-container mnt-total-day">
+            Total
+        </div>      
+            <div ng-repeat="car in monthly.globals" layout="row" class="mnt-container mnt-car-hed">
+            
                 <div layout-align="center center">
-                	{{ car.number }}
+                    {{ car.number }}
                 </div>
             </div>
-        </span>
-        </md-whiteframe>
+        
+        </md-whiteframe></span>
         <div layout="column" layout-align="start start" ng-repeat="party in monthly.parties | filter:mntFilter">
-            <md-card layout="row" flex="100">
-                <span layout="column" ng-repeat="car in monthly.globals | filter:monthly.cmpny" class="mnt-container" ng-model="total">
-                	{{ party[car.dbKey].sum1 + party[car.dbKey].sum2 + party[car.dbKey].sum3 }}
-					<span layout="row" ng-show="edit" class="val-edit">
-						<md-button class="md-icon-button" aria-label="More">
-					        <md-icon md-svg-icon="content:ic_create_24px"></md-icon>
-						</md-button>
-						<md-button class="md-icon-button" aria-label="More">
-					        <md-icon md-svg-icon="action:ic_delete_24px"></md-icon>
-						</md-button>
-					</span>
-                </span>
-            </md-card>
-        </div>
+            <span layout="row">
+ <!--           
+{{party._id}}
+            <input type="text" ng-model="id" ng-init="id=party._id">
+            {{party}}
+{{id}}
+-->
+                <md-card layout="row" flex="100" class="mnt-day-value">
+                <div class="mnt-day" layout-align="start center">{{party.date | date: 'dd'}}</div>
+                {{total[306]}}
+                <span layout="column" ng-repeat="car in monthly.globals | filter:monthly.cmpny" class="mnt-container">
+                   <input type="hidden" ng-model="total[car.dbKey]" ng-init="total[car.dbKey]=party[car.dbKey].sum1 + party[car.dbKey].sum2 + party[car.dbKey].sum3">
+                   {{total[car.dbKey]}}
+                    <span layout="row" ng-show="edit" class="val-edit">
+                        <md-button class="md-icon-button" aria-label="More">
+                            <md-icon md-svg-icon="content:ic_create_24px"></md-icon>
+                        </md-button>
+                        <md-button class="md-icon-button" aria-label="More">
+                            <md-icon md-svg-icon="action:ic_delete_24px"></md-icon>
+                        </md-button>
+                    </span>
+            </span>
+    </md-card>
+    </span>
+    </div>
     </md-card>
 </md-whiteframe>
+{{id}}
+
+<input type="text" ng-model="a">
