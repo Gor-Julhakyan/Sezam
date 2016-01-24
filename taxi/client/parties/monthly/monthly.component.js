@@ -17,12 +17,49 @@ angular.module('myPersonal').directive('monthly', function () {
           return Parties.findOne({_id: $stateParams.partyId});
         }
       });
+
+      this.cmpny = [];
+
+      var totalCars = this.globals.length;
+      var carsDbObj = this.globals;
+      
+this.autorun(function() {
+  var cmpnyCarsCount= [];
+  var amount = 0;
+  parseInt(amount, 10);
+
+  for (var i = 0; i < totalCars; i++) {
+    parseInt(i, 10);
+    var count = carsDbObj[i].cars.length;
+    cmpnyCarsCount[i] = count;
+    amount += count;
+    this.totalCarSIndex = amount;
+  } 
+});
 /*
-console.log(this.party);
-this.a = "";
-console.log(this.a);
+      this.autorun(function() {
+        var cars = this.globals;
+        var carsLength = cars.length;
+        var cmpanyes = this.cmpny;
+        var cmpnyLength = this.cmpny.length;
+
+      console.log('companies');
+      console.log(this.cmpny);
+      console.log('cmpny end');
+
+         for (var i = 0; i < carsLength; i++) {
+           parseInt(i, 10);
+           var cmpnyName = cars[i].cmpny;
+           //this.cmpny[i] = cmpnyName;
+           console.log(cmpnyName);
+         }
+         if (cmpnyLength > 0) {
+           console.log('All Dane');
+         } else {
+           console.log('Error To Add'); 
+         }
+      });
 */
-      this.cmpny = "erevan";
 
       this.len = 95 * this.globals.length;
 
@@ -60,8 +97,6 @@ console.log(this.a);
           ]
         }
       ];
-
-      console.log(this.len);
 
       this.save = () => {
         Parties.update({_id: $stateParams.partyId}, {

@@ -49,10 +49,9 @@
 -->
                 <md-card layout="row" flex="100" class="mnt-day-value">
                 <div class="mnt-day" layout-align="start center">{{party.date | date: 'dd'}}</div>
-                {{total[306]}}
+                {{party.totalSum}}
                 <span layout="column" ng-repeat="car in monthly.globals | filter:monthly.cmpny" class="mnt-container">
-                   <input type="hidden" ng-model="total[car.dbKey]" ng-init="total[car.dbKey]=party[car.dbKey].sum1 + party[car.dbKey].sum2 + party[car.dbKey].sum3">
-                   {{total[car.dbKey]}}
+                    <div>{{party[car.sIndex].total}}</div>
                     <span layout="row" ng-show="edit" class="val-edit">
                         <md-button class="md-icon-button" aria-label="More">
                             <md-icon md-svg-icon="content:ic_create_24px"></md-icon>
@@ -67,6 +66,6 @@
     </div>
     </md-card>
 </md-whiteframe>
-{{id}}
 
-<input type="text" ng-model="a">
+
+{{monthly.globals[1].cars}}

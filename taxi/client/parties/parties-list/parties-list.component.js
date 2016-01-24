@@ -7,12 +7,14 @@ angular.module('myPersonal').directive('partiesList', function () {
       $reactive(this).attach($scope);
 
       this.newParty = [];
+var amount = amount;
+console.log(amount + "partieslist");
 
       this.db = function () {
         var ob = this.newParty;
         var lent = ob.length;
         var totalArray = [];
-        var total = 0;
+        var ttl = 0;
         console.log(lent);
 
         if (lent > 0) {
@@ -30,15 +32,11 @@ angular.module('myPersonal').directive('partiesList', function () {
             this.newParty[i].total = sum;
 
             totalArray[i] = sum;
-            total =1000;
-            
-            this.newParty.total = total;
-            console.log(total);
-          } 
-          
+            var ttl = ttl + totalArray[i];
+            this.newParty.totalSum = ttl;
+          }          
         }
-
-        }
+      };
 
       this.helpers({
         parties: () => {
@@ -51,7 +49,7 @@ angular.module('myPersonal').directive('partiesList', function () {
 
       this.addParty = () => {
         Parties.insert(this.newParty);
-        this.newParty = {};
+        this.newParty = [];
       };
  
       this.removeParty = (party) => {

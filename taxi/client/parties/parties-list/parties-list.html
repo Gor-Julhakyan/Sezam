@@ -3,35 +3,22 @@
 <form action="">
 	<md-datepicker ng-model="partiesList.newParty.date" md-placeholder="Enter date"></md-datepicker>
 
-	<md-card class="sumtable">
+	<md-card class="sumtable" ng-repeat="global in partiesList.globals | filter:partiesList.cmpny">
 		<md-card layout="row" flex layout-align="center center" class="date">
     		<h2>{{ partiesList.newParty.date | date: 'dd.MM.yyyy' }}</h2>
  	 	</md-card>
-		<span ng-repeat="car in partiesList.globals | filter:partiesList.cmpny " layout="row" flex layout-margin layout-align="center center" class="car-input">
+		<span ng-repeat="car in global.cars" layout="row" flex layout-margin layout-align="center center" class="car-input">
 			<div class="input-label">{{ car.number }}</div>
 			<md-input-container md-no-float class="md-block" layout-fill flex="20" flex-offset="15">
-				<input type="number" min="0" id="sum1" ng-change="partiesList.db()" aria-label="input1" step="50" ng-model="partiesList.newParty[$index].sum1">
+				<input type="number" min="0" id="sum1" ng-change="partiesList.db()" aria-label="input1" step="50" ng-model="partiesList.newParty[car.id].sum1">
 			</md-input-container>
 			<md-input-container layout-fill flex="20" flex-offset="5" class="val-input">		
-				<input type="number" min="0" id="sum2" ng-change="partiesList.db()" aria-label="input2" step="50" ng-model="partiesList.newParty[$index].sum2">
+				<input type="number" min="0" id="sum2" ng-change="partiesList.db()" aria-label="input2" step="50" ng-model="partiesList.newParty[car.id].sum2">
 			</md-input-container>
 			<md-input-container layout-fill flex="20" flex-offset="5" class="val-input">				
-				<input type="number" min="0" id="sum3" ng-change="partiesList.db()" aria-label="input3" step="50" ng-model="partiesList.newParty[$index].sum3">
+				<input type="number" min="0" id="sum3" ng-change="partiesList.db()" aria-label="input3" step="50" ng-model="partiesList.newParty[car.id].sum3">
 			</md-input-container>
-			<!--
-			<input type="checkbox" ng-model="partiesList.newParty[car.dbKey].total" 
-     ng-value="" ng-checked="partiesList.newParty[car.dbKey].sum1 + partiesList.newParty[car.dbKey].sum2 + partiesList.newParty[car.dbKey].sum3"/>
-     {{ partiesList.newParty[car.dbKey].total }}
-     <input type="radio" ng-model="partiesList.newParty[car.dbKey].total" ng-value="partiesList.newParty[car.dbKey].sum1 + partiesList.newParty[car.dbKey].sum2 + partiesList.newParty[car.dbKey].sum3">
-     {{ name }}
 			
-			<input id="total" ng-change="partiesList.total()" ng-model="partiesList.newParty[car.dbKey].total" ng-init="partiesList.newParty[car.dbKey].total=partiesList.total()">
-			{{ partiesList.total() }}
-			<div id="tot">{{ partiesList.newParty[car.dbKey].sum1 + partiesList.newParty[car.dbKey].sum2 + partiesList.newParty[car.dbKey].sum3 }}</div> -->
-			<input type="number" id="ttt" ng-change="partiesList.total()" ng-model="partiesList.newParty[car.dbKey].total" >
-{{ partiesList.newParty[car.dbKey].total }}
-
-
 		</span>
 		<md-card-actions layout="row" layout-align="end center">
 			<md-button class="md-fab" aria-label="Add Sheat" ng-click="partiesList.addParty()">
