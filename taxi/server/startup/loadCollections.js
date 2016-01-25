@@ -14,8 +14,8 @@ Meteor.startup(function () {
   if (Globals.find().count() === 0) {
   	var globals = [
   		{
-  			cmpny: "Erevan",
   			cmpnyId: 0,
+  			cmpny: "AErevan",
   			cars: [ 
 				{ number: "0306", id: "0" },
 				{ number: "0307", id: "1" },
@@ -37,8 +37,9 @@ Meteor.startup(function () {
 			]
 		},
 		{
-			cmpny: "Arcvatev",
+
 			cmpnyId: 1,
+			cmpny: "Arcvatev",
 			cars: [
 				{number: "111", id: "17" },
 				{number: "112", id: "18" }				

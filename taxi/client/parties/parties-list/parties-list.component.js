@@ -8,6 +8,11 @@ angular.module('myPersonal').directive('partiesList', function () {
 
       this.newParty = [];
 
+      var companies = [];
+
+
+
+
 // Find Mongo Collections and returns that   
       this.helpers({
         parties: () => {
@@ -19,14 +24,40 @@ angular.module('myPersonal').directive('partiesList', function () {
       });
 
 
+      //console.log(this.globals[1].cmpny);
+        var cars = this.globals;
+        var carsLength = cars.length;
+        var cmpanies = [];
+        var cmpnyLength = cmpanies.length;
+      this.autorun(function() {
+
+
+      console.log('companies');
+      console.log(carsLength);
+      console.log('cmpny end');
+
+         for (var i = 0; i < carsLength; i++) {
+           parseInt(i, 10);
+           var cmpnyName = cars[i].cmpny;
+           //this.cmpny[i] = cmpnyName;
+           console.log(cmpnyName);
+         }
+         if (cmpnyLength > 0) {
+           console.log('All Dane');
+         } else {
+           console.log('Error To Add'); 
+         }
+      });
+
+
+
 //  Globals cars count
       var totalCars = this.globals.length;
       var carsDbObj = this.globals;
       var amount = 0;
+      var cmpnyCarsCount= [];
 
       this.autorun(function() {
-        var cmpnyCarsCount= [];
-        //var amount = 0;
         parseInt(amount, 10);
 
         for (var i = 0; i < totalCars; i++) {
@@ -38,33 +69,31 @@ angular.module('myPersonal').directive('partiesList', function () {
         return amount;
       });
 
+this.summm = [];
+
 //  Insert Valus to newParty => Mongo Collection
-      this.db = function () {
+      this.db = function (type) {
         var ob = this.newParty;
         var lent = ob.length;
         var totalArray = [];
         var ttl = 0;
-
+console.log(type);
         if (lent > 0) {
           for (var i = 0; i < lent; i++) {
 
-         //   if (ob[i] != null) {
-              if (ob[i].sum1 && ob[i].sum2 && ob[i].sum3 > 0) {
-                var sum = ob[i].sum1 + ob[i].sum2 + ob[i].sum3;
-              } else if (ob[i].sum1 && ob[i].sum2 > 0) {
-                var sum = ob[i].sum1 + ob[i].sum2;
-              } else {
-                var sum = ob[i].sum1;
-              }
-    
-              this.newParty[i].total = sum;
+          if (ob[i].sum1 && ob[i].sum2 && ob[i].sum3 > 0) {
+            var sum = ob[i].sum1 + ob[i].sum2 + ob[i].sum3;
+          } else if (ob[i].sum1 && ob[i].sum2 > 0) {
+            var sum = ob[i].sum1 + ob[i].sum2;
+          } else {
+            var sum = ob[i].sum1;
+          }
 
-              totalArray[i] = sum;
-              var ttl = ttl + totalArray[i];
-              this.newParty.totalSum = ttl;
-      //      } else {
-    //         i++
-       //     }
+          this.newParty[i].total = sum;
+
+          totalArray[i] = sum;
+          var ttl = ttl + totalArray[i];
+          this.newParty.totalSum = ttl;
           }         
         }
       };
