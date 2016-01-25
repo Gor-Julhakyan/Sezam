@@ -3,7 +3,7 @@ angular.module('myPersonal').directive('monthly', function () {
     restrict: 'E',
     templateUrl: 'client/parties/monthly/monthly.html',
     controllerAs: 'monthly',
-    controller: function ($scope, $reactive, $mdDialog, $filter, $stateParams) {
+    controller: function ($scope, $reactive, $mdDialog, $filter, $stateParams, $rootScope) {
       $reactive(this).attach($scope);
 
       this.helpers({
@@ -20,23 +20,9 @@ angular.module('myPersonal').directive('monthly', function () {
 
       this.cmpny = [];
 
-      var totalCars = this.globals.length;
-      var carsDbObj = this.globals;
-      
-this.autorun(function() {
-  var cmpnyCarsCount= [];
-  var amount = 0;
-  parseInt(amount, 10);
-
-  for (var i = 0; i < totalCars; i++) {
-    parseInt(i, 10);
-    var count = carsDbObj[i].cars.length;
-    cmpnyCarsCount[i] = count;
-    amount += count;
-    this.totalCarSIndex = amount;
-  } 
-});
 /*
+
+this.totalCarSIndex =
       this.autorun(function() {
         var cars = this.globals;
         var carsLength = cars.length;

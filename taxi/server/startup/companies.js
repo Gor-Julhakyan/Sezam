@@ -1,4 +1,4 @@
-Meteor.startup( function () {
+/*Meteor.startup( function () {
 	if (Globals.find().count > 0) {
 		var cars = Globals.find({});
 		var carCount = cars.length;
@@ -11,4 +11,4 @@ Meteor.startup( function () {
 		}
 	}
 
-});
+});*/
